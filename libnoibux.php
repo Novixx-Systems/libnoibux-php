@@ -1,6 +1,5 @@
 <?php
-// NOiBux PHP library - (c) 2023 Novixx Systems
-// Use with noibux.novixx.com
+// NOiBux PHP library
 
 /**
   * Redirect to NOiBux to pay
@@ -28,10 +27,10 @@ function Pay($account, $product, $price, $return_url)
  *
  * @param int $tid Transaction ID
  */
-function VerifyTransaction($tid)
+function VerifyTransaction($tid, $receiver, $amount)
 {
     $url = 'https://noibux.novixx.com/purc.php';
-    $data = array('verify' => 1, 'id' => $tid);
+    $data = array('verify' => 1, 'id' => $tid, 'receiver' => $receiver, 'amount' => $amount);
     $options = array(
         'http' => array(
             'header' => "Content-type: application/x-www-form-urlencoded\r\n",
