@@ -9,13 +9,14 @@
   * @param float $price Price
   * @param string $return_url Return URL
   */
-function Pay($account, $product, $price, $return_url)
+function Pay($account, $product, $price, $return_url, $custom = '')
 {
     echo '<form action="https://noibux.novixx.com/purc.php" method="post" id="redirect_form">
         <input type="hidden" name="receiver" value="' . $account . '">
         <input type="hidden" name="amount" value="' . $price . '">
         <input type="hidden" name="return_url" value="' . $return_url . '">
         <input type="hidden" name="product_name" value="' . $product . '">
+        <input type="hidden" name="custom" value="' . $custom . '">
     </form>
     <script>
         document.getElementById("redirect_form").submit();
